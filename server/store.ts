@@ -427,7 +427,7 @@ const SEED_MENU: MenuItem[] = [
     available: true,
     spicyLevel: 0,
     recipe: [{ inventoryId: 'inv-espresso', amount: 0.25 }],
-  },,
+  },
   {
     id: 'dish-classic-smash',
     name: 'كلاسيك سماش برجر',
