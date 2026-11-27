@@ -402,7 +402,7 @@ export const ManagerDashboard: React.FC<ManagerDashboardProps> = ({ section }) =
                 </div>
                 <div className="h-24 w-24 shrink-0 overflow-hidden rounded-xl border border-zinc-800">
                   <img
-                    src="/src/assets/images/dish_signature_burger_1795810517694.jpg"
+                    src="/images/dish_signature_burger_1795810517694.jpg"
                     alt="Doko Burger"
                     className="h-full w-full object-cover"
                   />

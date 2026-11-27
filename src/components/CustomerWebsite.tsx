@@ -260,7 +260,7 @@ export const CustomerWebsite: React.FC = () => {
                   <motion.img
                     whileHover={{ scale: 1.03 }}
                     transition={{ duration: 0.6 }}
-                    src="/src/assets/images/hero_doko_feast_1795810517508.jpg"
+                    src="/images/hero_doko_feast_1795810517508.jpg"
                     alt="مائدة مطعم دوكو المميزة"
                     referrerPolicy="no-referrer"
                     onError={() => setHeroImgError(true)}
