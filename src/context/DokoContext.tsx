@@ -1,4 +1,5 @@
 import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
+import { STATIC_MENU } from '../data/static-menu';
 import type {
   DokoState,
   InventoryItem,
@@ -161,15 +162,35 @@ export const DokoProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     let active = true;
     fetch('/api/state')
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error(`State API failed: ${r.status}`);
+        return r.json();
+      })
       .then((data: DokoState) => {
         if (active) {
-          setState(data);
+          // Keep the customer catalog visible if persisted server state is empty.
+          setState({
+            ...data,
+            menu: Array.isArray(data.menu) && data.menu.length > 0 ? data.menu : STATIC_MENU,
+          });
           setLoading(false);
         }
       })
       .catch(() => {
-        if (active) setLoading(false);
+        if (active) {
+          // Public catalog remains visible even while the server API is unavailable.
+          setState({
+            menu: STATIC_MENU,
+            inventory: [],
+            stockMovements: [],
+            orders: [],
+            tables: [],
+            reservations: [],
+            auditLogs: [],
+            nextOrderNumber: 1,
+          });
+          setLoading(false);
+        }
       });
 
     const source = new EventSource('/api/events');
