@@ -1,0 +1,8 @@
+{
+  "name": "دوكو — نظام مطعم دوكو المتكامل",
+  "description": "موقع مطعم دوكو الرسمي ونظام إدارة العمليات اللحظي: المنيو التفاعلي، الحجوزات، نقاط البيع، شاشة المطبخ، المخزون اللحظي، وتقارير الطلبات المفصلة.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
